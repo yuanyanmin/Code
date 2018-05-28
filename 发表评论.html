@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>发表评论</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.comment{
+			width: 800px;
+			border:1px solid #ccc;
+			margin:100px auto;
+			padding:20px;
+		}
+		#my_textarea{
+			width: 80%;
+			height: 120px;
+		}
+		.box{
+			margin-bottom: 20px;
+		}
+		#ul{
+			list-style-type: none;
+			margin:0 80px;
+		}
+		#ul li{
+			border-bottom : 1px dashed #ccc;
+			line-height: 40px;
+			color:red;
+		}
+		#ul li a{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="comment">
+		<div class="box">
+			<span>发表评论:</span>
+			<textarea name="" id="my_textarea" cols="30" rows="10"></textarea>
+			<button id = 'send'>发表</button>
+		</div>
+		<ul id = 'ul'>
+		</ul>
+	</div>
+
+	<script>
+		var ul = document.getElementById('ul');
+		var send = document.getElementById('send');
+		var text = document.getElementById('my_textarea');
+
+ 		send.onclick = function () {
+ 			//console.log(text.value);
+ 			if(text.value.length == 0){
+ 				 alert("请输入评论的内容~");
+                return;
+ 			}
+
+ 			var tag = document.createElement('li');
+ 			tag.innerHTML = text.value + '<a href="javascript:;">删除</a>';
+ 			ul.insertBefore(tag,ul.children[0]);
+
+ 			text.value = '';
+
+ 			//del
+ 			var del = document.getElementsByTagName('a');
+ 			//console.log(del);
+
+ 			for(var i = 0;i < del.length;i++){
+ 				del[i].onclick = function(){
+ 					return function(){
+ 						this.parentNode.remove();
+ 					}
+ 				}(i);
+ 			}
+
+ 		}
+	</script>
+</body>
+</html>

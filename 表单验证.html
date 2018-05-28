@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>表单验证</title>
+	<link rel="stylesheet" href="">
+
+	<style>
+		#des{
+			color:darkgray;
+			font-size: 13px;
+		}
+		#score{
+			border: 1px solid darkgray;
+		}
+		.right{
+			color:lightgreen !important;
+			background:url('img/images/right.png') no-repeat 5px center;
+			background-size: 15px 15px;
+			padding-left: 20px;
+		}
+		.error{
+			color: red !important;
+			background:url('img/images/error.png') no-repeat 5px center;
+			background-size: 15px 15px;
+			padding-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<label for="score">您的成绩</label>
+		<input type="text" name="score" id="score" placeholder="输入分数">
+		<label id="des"></label>
+	</div>
+
+	<script>
+		window.onload = function () {
+
+			var des = $('des');
+			var score = $('score');
+
+			score.onfocus = function () {
+				des.innerHTML = "请输您的成绩";
+				des.className = '';
+				score.style.outline = 'none';
+				score.value = '';
+				score.sytle.borderColor = "darkgray"
+			}
+
+			score.onblur = function () {
+				var value = parseInt(score.value);
+
+				if(isNaN(value)){   //不是一个数
+					// des.innerHTML = "您输入的成绩有误";
+					// des.className = 'error';
+					// score.style.borderColor = "red";
+					dealStyle("您输入的成绩有误",'error',"red");
+				}else if(value >= 0 && value <= 100){
+					// des.innerHTML = "您输入的成绩正确";
+					// des.className = 'right';
+					// score.style.borderColor = "lightgreen";
+					dealStyle("您输入的成绩正确",'right',"lightgreen");
+				}else{
+					// des.innerHTML = "请输入0-100之间的数字";
+					// des.className = "error";
+					// score.style.borderColor = "red";
+					dealStyle("请输入0-100之间的数字",'error',"red");
+				}
+			}
+
+			function $(id){
+				return typeof id === "string" ? document.getElementById(id) : null;
+			}
+
+			function dealStyle(msg,className,color){
+				des.innerHTML = msg;
+				des.className = className;
+				score.style.borderColor = color;
+			}
+
+		}
+	</script>
+</body>
+</html>

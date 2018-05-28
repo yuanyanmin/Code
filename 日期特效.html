@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>日期特效</title>
+	<link rel="stylesheet" href="">
+	<style>
+		#box{
+			margin:100px auto;
+			background-color: orange;
+			width: 300px;
+			height: 300px;
+			color:#fff;
+			padding:20px;
+		}
+		#box_top{
+			font-size: 23px;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		#box_bottom{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			font-size: 100px;
+			margin:0 auto;
+			/*水平垂直居中*/
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="box_top">2018年2月23日 星期六</div>
+		<div id="box_bottom">2</div>
+	</div>
+
+	<script>
+		window.onload = function () {
+			var date = new Date();
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			var week = date.getDay();
+
+			//存放星期
+			var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+			//console.log(year,month,day,weeks[week]);         //2018 5 27 "星期日"
+
+			$("box_top").innerText = year + '年 ' + month + '月 ' + day + '日 ' + weeks[week];
+			$("box_bottom").innerText = day;
+
+		};
+
+		function $(id) {
+			return typeof id === 'string' ? document.getElementById(id) : null;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>选中与取消选中</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		.pannel{
+			width:400px;
+			box-shadow: 0 0 10px #000;
+			margin:100px auto; 
+			padding:20px;
+		}
+		.pannel-header{
+			text-align: center;
+			margin-bottom: 10px;
+		}
+		.pannel-footer{
+			text-align: center;
+			margin-top: 10px;
+		}
+	</style>	
+</head>
+<body>
+	<div class="pannel">
+		<section class="pannel-header">
+			<h2>歌曲排行榜</h2>
+			<hr>
+		</section>
+		<section class="pannel-body">
+			<input type="checkbox">1.时间都去哪了<br>
+            <input type="checkbox">2.海阔天空<br>
+            <input type="checkbox">3真的爱你<br>
+            <input type="checkbox">4.不再犹豫<br>
+            <input type="checkbox">5.光辉岁月<br>
+            <input type="checkbox">6.喜欢妳<br>
+            <input type="checkbox">7.偏偏喜欢你<br>
+            <input type="checkbox">8.爱拼才会赢<br>
+            <input type="checkbox">9.老街<br>
+            <hr>
+		</section>
+		<section class="pannel-footer">
+			<button id="selectAll">全选</button>
+			<button id="selectCancel">反选</button>
+			<button id="selectNo">全选</button>
+		</section>
+	</div>
+
+	<script>
+		window.onload = function(){
+			var inputs = document.querySelectorAll('input');
+			//console.log(inputs);
+
+			$("selectAll").onclick = function(){
+				for(var i = 0;i<inputs.length;i++){
+					inputs[i].checked = true;
+				}
+			};
+
+			$("selectNo").onclick = function(){
+				for(var i = 0;i<inputs.length;i++){
+					inputs[i].checked = false;
+				}
+			};
+
+			$("selectCancel").onclick = function(){
+				for(var i = 0;i<inputs.length;i++){
+					inputs[i].checked = !inputs[i].checked;
+				}
+			};
+
+			function $(id){
+				return typeof id === 'string' ? document.getElementById(id):null; 
+			}
+		}
+	</script>
+</body>
+</html>

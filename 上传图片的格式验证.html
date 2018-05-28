@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>上传图片的格式验证</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<label for="">上传图片的格式：</label>
+	<input type="file" id="file">
+
+	<script>
+		$('file').onchange = function () {
+			var path = this.value;
+			//console.log(path);
+
+			path = path.substr(path.lastIndexOf('.'));
+			//console.log(path);
+
+			path = path.toLowerCase();
+
+			if(path === '.jpg' || path === '.png' || path === '.jpeg' || path === '.gif'){
+				alert('选择图片格式正确');
+			}else{
+				alert("选择图片格式bu正确");
+			}
+		}
+
+		function $(id){
+			return typeof id === 'string' ? document.getElementById('file') : null;
+		}
+	</script>
+</body>
+</html>

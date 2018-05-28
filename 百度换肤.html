@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>百度换肤</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style-type: none;
+		}
+		body{
+			background: url(img/images/1.jpg) no-repeat;
+			background-size:cover;
+		}
+		#box ul{
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			cursor: pointer;
+		}
+		#box ul li img{
+			width: 180px;
+			height: 120px;
+		}
+		#box{
+			background-color: rgba(255,255,255,0.5);
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li><img src="img/images/1.jpg" alt=""></li>
+			<li><img src="img/images/2.jpg" alt=""></li>
+			<li><img src="img/images/3.jpg" alt=""></li>
+			<li><img src="img/images/4.jpg" alt=""></li>
+			<li><img src="img/images/5.jpg" alt=""></li>
+		</ul>
+	</div>
+
+	<script>
+		window.onload = function(){
+			var box = document.getElementById("box");
+			var lis = box.getElementsByTagName("li");
+
+			for(var i = 0;i<lis.length;i++){
+				var sLi = lis[i];
+				sLi.index = i+1;
+
+				sLi.onclick = function(){
+					document.body.style.background = 'url("img/images/'+this.index +'.jpg") no-repeat';
+				}
+			}
+		}
+		
+
+
+	</script>
+</body>
+</html>

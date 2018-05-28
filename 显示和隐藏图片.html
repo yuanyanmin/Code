@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>显示和隐藏图片</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<button id="btn">显示</button>
+	<p></p>
+	<img src="img/img_01.jpg" alt="">
+
+	<script>
+		window.onload = function(){
+			var btn = document.getElementById("btn");
+			var img = document.getElementsByTagName("img")[0];
+			btn.onclick = function(){
+				if(btn.innerText == "显示"){
+					btn.innerText = "隐藏";
+					img.style.display = "none";
+				}else{
+					btn.innerText = "显示";
+					img.style.display = "block";
+				}
+			}
+		}
+		
+	</script>
+</body>
+</html>

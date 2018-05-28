@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>九宫格</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#top{
+			padding: 20px;
+		}
+		#top button{
+			width: 50px;
+		}
+		#bottom{
+			position: relative;
+		}
+		#bottom .box {
+			background-color: #ccc;
+			width: 220px;
+			height: 360px;
+			margin:0 15px 15px 0;
+		}
+		#bottom .box p:last-child{
+			color:orange;
+		}
+	</style>
+</head>
+<body>
+	<div id="top">
+		<button>3列</button>
+		<button>4列</button>
+		<button>5列</button>			
+	</div>
+	<div id="bottom">
+		<div class="box">
+			<img src="img/nine-ge/image/1.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/2.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/3.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/4.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/5.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/6.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/7.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/8.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/9.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/10.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/11.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/12.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/13.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/14.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+		<div class="box">
+			<img src="img/nine-ge/image/15.jpg" alt="">
+			<p>因为遇见你</p>
+			<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+		</div>
+	</div>
+
+	<script>
+		var topBtn = document.getElementById('top').children;
+		//console.log(topBtn);
+		var bottomBox = document.getElementById('bottom');
+		//console.log(bottomBox.children);
+
+		topBtn[0].onclick = function () {
+			j_flex(3,bottomBox);
+		};
+
+		topBtn[1].onclick = function () {
+			j_flex(4,bottomBox);
+		};
+
+		topBtn[2].onclick = function () {
+			j_flex(5,bottomBox);
+		};
+
+		function j_flex (num,parentNode){
+			var boxW = 220, boxH = 360, marginXY = 15;
+
+			for(var i = 0;i < parentNode.children.length;i++){
+
+				var row = parseInt(i / num);
+				var col = parseInt(i % num);
+
+				parentNode.children[i].style.position = 'absolute';
+				parentNode.children[i].style.top = row * (boxH + marginXY) + 'px'; 
+				parentNode.children[i].style.left = col * (boxW + marginXY) + 'px';
+
+			}
+		}
+		
+	</script>
+</body>
+</html>
