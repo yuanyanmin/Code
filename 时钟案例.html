@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>时钟案例</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			width: 600px;
+			height: 600px;
+			background:url(img/clock/clock.jpg);
+			margin:10px auto;
+			position: relative;
+		}
+		#hour,#min,#second {
+			 position: absolute;
+			 top: 0;
+			 left: 50%;
+			 width: 30px;
+			 height: 600px;
+			 margin-left: -15px;
+		}
+		#hour {
+			background:url(img/clock/hour.png);
+		}
+		#min {
+			background:url(img/clock/minute.png);
+		}
+		#second {
+			background:url(img/clock/second.png);
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="hour"></div>
+		<div id="min"></div>
+		<div id="second"></div>
+	</div>
+
+	<script>
+	window.onload = function(){
+		var hour = document.getElementById('hour');
+		var min = document.getElementById('min');
+		var second = document.getElementById('second');
+
+		setInterval(function(){
+			var date = new Date();
+			//获取当前毫秒数
+			var mills = date.getMilliseconds();
+
+			var s = date.getSeconds() + mills / 1000;
+			var m = date.getMinutes() + s / 60;
+			var h = date.getHours() % 12 + m / 60;
+
+			hour.style.transform = 'rotate(' + h * 30 + 'deg)';
+			min.style.transform = 'rotate(' + m * 6 + 'deg)';
+			second.style.transform = 'rotate(' + s * 6 + 'deg)';
+
+		},10);
+	}
+	</script>
+</body>
+</html>
